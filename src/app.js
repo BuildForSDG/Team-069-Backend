@@ -17,7 +17,7 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connect = mongoose.connection;
 
 connect.once('open', () => {
-  console.log('MongoDb connected');
+  return 'connected';
 });
 
 app.use((req, res) => {
