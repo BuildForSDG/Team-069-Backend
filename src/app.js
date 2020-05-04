@@ -16,12 +16,11 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 
 const connect = mongoose.connection;
 
-connect.once('open', () => {
-  return 'connected';
-});
+connect.once('open', () => 'connected');
 
 app.use((req, res) => {
   res.json({ message: 'your request wass successfull' });
 });
 
 module.exports = app;
+
