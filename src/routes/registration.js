@@ -7,9 +7,10 @@ const router = require('express').Router();
 const Signup = require('../models/registration');
 
 router.post('/add', (req, res) => {
-
+  const { username } = req.body;
+  console.log(username);
   const newsignup = new Signup({
-    username: req.body.username
+    username
   });
   newsignup.save()
     .then(() => res.json('user registered'))
