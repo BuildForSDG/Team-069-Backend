@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const express = require('express');
 
 const cors = require('cors');
@@ -17,6 +18,13 @@ mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedT
 const connect = mongoose.connection;
 
 connect.once('open', () => 'connected');
+
+const registrationRoutes = require('./routes/registration');
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use('/auth', registrationRoutes);
 
 app.use((req, res) => {
   res.json({ message: 'your request wass successfull' });
