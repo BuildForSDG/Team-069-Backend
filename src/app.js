@@ -21,6 +21,9 @@ connect.once('open', () => 'connected');
 
 const registrationRoutes = require('./routes/registration');
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 app.use('/auth', registrationRoutes);
 
 app.use((req, res) => {
